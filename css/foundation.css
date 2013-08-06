@@ -2940,7 +2940,11 @@ label.error {
   .top-bar-section ul li.hover > a {
     background: #090909;
     color: white; }
-  .top-bar-section ul li.active > a {
+  /*.top-bar-section ul li.active > a {
+    background: #090909;
+    color: white; }*/
+    /* Changing this to use the default WordPress current page list */
+  .top-bar-section ul li.current-menu-item > a {
     background: #090909;
     color: white; }
   .top-bar-section .has-form {
