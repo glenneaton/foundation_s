@@ -1,7 +1,7 @@
-foundationfoundation_s
+foundation_s
 ===
 
-This is a starter theme created by merging _s by Automatic and Foundation. Just follow the instructions below to change out the necessary information.
+This is a starter theme created by merging _s by Automatic and Foundation by Zurb. Just follow the instructions below to change out the necessary information.
 
 This theme is a work in progress 
 
@@ -10,9 +10,7 @@ This theme is a work in progress
 Getting Started
 ---------------
 
-If you want to keep it simple, head over to http://underscores.me and generate your `_s` based theme from there. You just input the name of the theme you want to create, click the "Generate" button, and you get your ready-to-awesomize starter theme.
-
-If you want to set things up manually, download `_s` from github. The first thing you want to do is copy the `foundation_s` directory and change the name to something else - Like, say, `mythemename` - then you'll need to do a five-step find and replace on the name in all the templates.
+To set things up manually, download `foundation_s` from github. The first thing you want to do is copy the `foundation_s` directory and change the name to something else - Like, say, `mythemename` - then you'll need to do a five-step find and replace on the name in all the templates.
 
 1. Search for `'foundation_s'` (inside single quotations) to capture the text domain.
 2. Search for `foundation_s_` to capture all the function names.
