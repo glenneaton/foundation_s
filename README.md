@@ -1,7 +1,7 @@
 foundation_s
 ===
 
-This is a starter theme created by merging _s by Automatic and Foundation by Zurb. Just follow the instructions below to change out the necessary information.
+This is a starter theme created by merging _s by Automatic and Foundation by Zurb. Just follow the instructions below to change out the necessary information. I also used the great functions.php setup from drewsymo. You can check out his work with Foundation and HTML5 Boilerplate `[here](https://github.com/drewsymo/Foundation)`.
 
 This theme is a work in progress 
 
