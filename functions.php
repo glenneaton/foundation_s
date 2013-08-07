@@ -120,9 +120,11 @@ function foundation_s_scripts() {
 	wp_enqueue_script( 'foundation_s-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
 	wp_enqueue_script( 'foundation_s-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
-	wp_enqueue_script('zepto', get_template_directory_uri() . '/js/zepto.js', array(), '01', true);
-	wp_enqueue_script('foundation', get_template_directory_uri() . '/js/foundation.min.js', array('jquery'), '01', true);
+	wp_enqueue_script('modernizr', get_template_directory_uri() . '/js/custom.modernizr.js', array(), '2.6.2', false);
+	wp_enqueue_script('zepto', get_template_directory_uri() . '/js/zepto.js', array(), '1.0.1', true);
 	wp_enqueue_script('helpmakeitwork', get_template_directory_uri() . '/js/helpmakeitwork.js', array('jquery'), '01',true);
+	wp_enqueue_script('foundation', get_template_directory_uri() . '/js/foundation.min.js', array('jquery', 'helpmakeitwork'), '01', true);
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -132,6 +134,9 @@ function foundation_s_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'foundation_s_scripts' );
+
+add_filter( 'show_admin_bar', '__return_false' );
+
 
 /**
  * Implement the Custom Header feature.

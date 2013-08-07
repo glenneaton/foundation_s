@@ -31,15 +31,15 @@
 			    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
 			    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
 			 </ul>
-		
+			<section class="top-bar-section">
 			<?php wp_nav_menu( array( 
-			'theme_location' => 'primary', 
-			'container' => 'div',
-			'container_class' => 'top-bar-section',
-			'menu_class' => 'right',
-			'walker' => new Foundation_Walker()
-
+				'theme_location' => 'primary', 
+				'container' => '',
+				'container_class' => '',
+				'menu_class' => 'right',
+				'walker' => new Foundation_Walker()
 			) ); ?>
+			</section>
 		</nav><!-- #site-navigation -->
 
 	</header><!-- #masthead -->
