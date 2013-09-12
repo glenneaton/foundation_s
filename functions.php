@@ -46,10 +46,12 @@ function foundation_s_setup() {
 	 */
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'foundation_s' ),
+		'grid' => __('Grid Menu', 'foundation_s'),
 	) );
+
 // Using the Walker class to add the dropdown class to sub-menus per Foundation requirements
 
-    class Foundation_Walker extends Walker_Nav_Menu {
+class Foundation_Walker extends Walker_Nav_Menu {
     function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ){
         $GLOBALS['dd_children'] = ( isset($children_elements[$element->ID]) )? 1:0;
         $GLOBALS['dd_depth'] = (int) $depth;
@@ -61,6 +63,50 @@ function foundation_s_setup() {
     $output .= "<ul class=\"dropdown\">";
   }
 }
+
+
+// walker class to turn nav menus into grid elements
+
+// Add class to the tile navigation for blocks
+class tile_walker extends Walker_Nav_Menu
+{
+    function start_el(&$output, $item, $depth, $args)
+    {	
+
+    	// variables for class names - change these.
+    	$largeGrid = '';
+    	$smallGrid = '';
+
+    	// uncomment tight variable to add the smaller margin class
+    	// $tight = 'tight';
+
+
+    	$attributes  = '';
+        !empty( $item->attr_title ) and $attributes .= ' title="'  . esc_attr( $item->attr_title ) .'"';
+        !empty( $item->target ) and $attributes .= ' target="' . esc_attr( $item->target     ) .'"';
+        !empty( $item->xfn ) and $attributes .= ' rel="'    . esc_attr( $item->xfn        ) .'"';
+        !empty( $item->url ) and $attributes .= ' href="'   . esc_attr( $item->url        ) .'"';
+        $classes = empty($item->classes) ? array () : (array) $item->classes;
+        $class_names = join(' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
+        !empty ( $class_names ) and $class_names = ' class="' . $largeGrid . ' ' ' ' . $smallGrid . '  columns ' . $tight . '"';
+        $output .= "<a" . $attributes . " class='tile-menu-item'>";
+        $output .= "<div id='ms-menu-item-$item->ID' $class_names>";
+        $output .= "<div class='panel table' data-height-watch>";
+        
+        $title = apply_filters( 'the_title', $item->title, $item->ID );
+        $item_output = $args->before
+        . "<h2>"
+        . $args->link_before
+        . $title
+        . '</h2></div></div>'
+        . '</a>'
+        . $args->link_after
+        . $args->after;
+        $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+    }
+}
+
+
 
 add_filter('nav_menu_css_class','add_parent_css',10,2);
 function  add_parent_css($classes, $item){
