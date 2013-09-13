@@ -33,15 +33,15 @@
 			 </ul>
 		
 			<?php wp_nav_menu( array( 
-			'theme_location' => 'primary', 
-			'container' => 'div',
-			'container_class' => 'top-bar-section',
-			'menu_class' => 'right',
-			'walker' => new Foundation_Walker()
-
+				'theme_location' => 'primary', 
+				'container' => 'div',
+				'container_class' => 'top-bar-section',
+				'menu_class' => 'right',
+				'walker' => new Foundation_Walker()
 			) ); ?>
 		</nav><!-- #site-navigation -->
 
 	</header><!-- #masthead -->
-
-	<div id="content" class="site-content">
+<!-- Begin Page -->
+<!-- THIS IS THE MAIN BODY ROW  it covers entire page.  We can make sure to add new rows if we choose to close this out and open again within the pages -->
+<div class="row" data-match-height>
