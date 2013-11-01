@@ -1,7 +1,7 @@
 foundation_s
 ===
 
-This is a starter theme created by merging _s by Automatic and Foundation by Zurb. Just follow the instructions below to change out the necessary information.
+This is a starter theme created by merging _s by Automattic and Foundation by Zurb. Just follow the instructions below to change out the necessary information.
 
 This theme is a work in progress 
 
