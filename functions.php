@@ -1,4 +1,4 @@
-<?php
+	<?php
 /**
  * foundation_s functions and definitions
  *
@@ -49,9 +49,16 @@ function foundation_s_setup() {
 		'grid' => __('Grid Menu', 'foundation_s'),
 	) );
 
+
+/* --------------------------------------------
+		Walker classes
+-------------------------------------------- */
+
+
+
 // Using the Walker class to add the dropdown class to sub-menus per Foundation requirements
 
-class Foundation_Walker extends Walker_Nav_Menu {
+class foundation_s_walker extends Walker_Nav_Menu {
     function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ){
         $GLOBALS['dd_children'] = ( isset($children_elements[$element->ID]) )? 1:0;
         $GLOBALS['dd_depth'] = (int) $depth;
@@ -77,8 +84,8 @@ class tile_walker extends Walker_Nav_Menu
     	$largeGrid = '';
     	$smallGrid = '';
 
-    	// uncomment tight variable to add the smaller margin class
-    	// $tight = 'tight';
+    	// add 'tight' to variable to add the smaller margin class
+    	$tight = ''; 
 
 
     	$attributes  = '';
@@ -126,10 +133,6 @@ function add_parent_class( $css_class, $page, $depth, $args )
    return $css_class;
 }
 add_filter( 'page_css_class', 'add_parent_class', 10, 4 );
-	/**
-	 * Enable support for Post Formats
-	 */
-	// add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
 
 	/**
 	 * Setup the WordPress core custom background feature.
@@ -179,6 +182,68 @@ function foundation_s_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'foundation_s_scripts' );
+
+/* --------------------------------------------
+		Custom Functions
+-------------------------------------------- */
+
+function foundation_s_login_logo() 
+// this is used to create a custom login screen - feel free to change the
+// parameters as you see fit 
+{  echo 
+    '<style  type="text/css"> h1 a {  
+    		background-image:url('.get_template_directory_uri().'/images/LOGO_NAME_GOES_HERE)  !important;
+		    background-position: left top !important;
+		    background-repeat: no-repeat;
+		    background-size: 100% !important;
+		    display: block;
+		    height: 105px !important;
+		    outline: 0 none;
+		    overflow: hidden;
+		    padding-bottom: 15px;
+		    text-indent: -9999px;
+		    width: 335px !important;
+		}
+    </style> '; 
+}  
+add_action('login_head',  'my_custom_login_logo');
+
+function foundation_s_remove_menu_items() {
+	// uncomment any of the below sections to remove admin menus
+    if( !current_user_can( 'manage_options' ) ):
+    	// remove_menu_page( 'edit.php?post_type=page' ); // pages
+	    // remove_menu_page('link-manager.php');
+	    // remove_menu_page('index.php');
+	    // remove_menu_page('users.php');
+	    // remove_menu_page('upload.php');
+	    // remove_menu_page('tools.php');
+	    // remove_menu_page('edit.php');
+	    // remove_menu_page('edit-comments.php');
+	    // remove_menu_page('post-new.php');
+	    // remove_submenu_page('themes.php','themes.php');
+	    // remove_submenu_page('themes.php','theme-editor.php');
+	    // remove_submenu_page('themes.php','widgets.php');
+    endif;
+}
+add_action( 'admin_menu', 'foundation_s_remove_menu_items' );
+
+
+function the_page_name(){
+	// allows you to use the name of the current page.
+		global $post;
+		return $post->post_name;
+	}
+function get_page_name(){
+	// allows you to display the name of the current page.
+		global $post;
+		echo $post->post_name;
+	}
+
+/* --------------------------------------------
+		Functions in Progress
+-------------------------------------------- */
+
+
 
 /**
  * Implement the Custom Header feature.
