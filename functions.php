@@ -171,7 +171,7 @@ function foundation_s_scripts() {
 	wp_enqueue_script( 'foundation_s-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 	wp_enqueue_script('zepto', get_template_directory_uri() . '/js/zepto.js', array(), '01', true);
 	wp_enqueue_script('foundation', get_template_directory_uri() . '/js/foundation.min.js', array('jquery'), '01', true);
-		wp_enqueue_script('myapp', get_template_directory_uri(). '/js/app.js', array(), '01', true);
+		wp_enqueue_script('myapp', get_template_directory_uri(). '/js/foundation_s.js', array(), '01', true);
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -188,69 +188,69 @@ add_action( 'wp_enqueue_scripts', 'foundation_s_scripts' );
 
 // uncomment this filter to remove the admin bar when logged in.
 
-// add_filter( 'show_admin_bar', '__return_false' );
+	// add_filter( 'show_admin_bar', '__return_false' );
 
 // this is used to create a custom login screen - feel free to change the
 // parameters as you see fit 
-function foundation_s_login_logo() {  
-	echo 
-    '<style  type="text/css"> h1 a {  
-    		background-image:url('.get_template_directory_uri().'/images/LOGO_NAME_GOES_HERE)  !important;
-		    background-position: left top !important;
-		    background-repeat: no-repeat;
-		    background-size: 100% !important;
-		    display: block;
-		    height: 105px !important;
-		    outline: 0 none;
-		    overflow: hidden;
-		    padding-bottom: 15px;
-		    text-indent: -9999px;
-		    width: 335px !important;
-		}
-    </style> '; 
-}  
-add_action('login_head',  'my_custom_login_logo');
+	function foundation_s_login_logo() {  
+		echo 
+	    '<style  type="text/css"> h1 a {  
+	    		background-image:url('.get_template_directory_uri().'/images/LOGO_NAME_GOES_HERE)  !important;
+			    background-position: left top !important;
+			    background-repeat: no-repeat;
+			    background-size: 100% !important;
+			    display: block;
+			    height: 105px !important;
+			    outline: 0 none;
+			    overflow: hidden;
+			    padding-bottom: 15px;
+			    text-indent: -9999px;
+			    width: 335px !important;
+			}
+	    </style> '; 
+	}  
+	add_action('login_head',  'my_custom_login_logo');
 
 
 // uncomment any of the below sections to remove admin menus
-function foundation_s_remove_menu_items() {
-    if( !current_user_can( 'manage_options' ) ):
-    	// remove_menu_page( 'edit.php?post_type=page' ); // pages
-	    // remove_menu_page('link-manager.php');
-	    // remove_menu_page('index.php');
-	    // remove_menu_page('users.php');
-	    // remove_menu_page('upload.php');
-	    // remove_menu_page('tools.php');
-	    // remove_menu_page('edit.php');
-	    // remove_menu_page('edit-comments.php');
-	    // remove_menu_page('post-new.php');
-	    // remove_submenu_page('themes.php','themes.php');
-	    // remove_submenu_page('themes.php','theme-editor.php');
-	    // remove_submenu_page('themes.php','widgets.php');
-    endif;
-}
-add_action( 'admin_menu', 'foundation_s_remove_menu_items' );
+	function foundation_s_remove_menu_items() {
+	    if( !current_user_can( 'manage_options' ) ):
+	    	// remove_menu_page( 'edit.php?post_type=page' ); // pages
+		    // remove_menu_page('link-manager.php');
+		    // remove_menu_page('index.php');
+		    // remove_menu_page('users.php');
+		    // remove_menu_page('upload.php');
+		    // remove_menu_page('tools.php');
+		    // remove_menu_page('edit.php');
+		    // remove_menu_page('edit-comments.php');
+		    // remove_menu_page('post-new.php');
+		    // remove_submenu_page('themes.php','themes.php');
+		    // remove_submenu_page('themes.php','theme-editor.php');
+		    // remove_submenu_page('themes.php','widgets.php');
+	    endif;
+	}
+	add_action( 'admin_menu', 'foundation_s_remove_menu_items' );
 
 
-function the_page_name(){
-	// allows you to use the name of the current page.
-		global $post;
-		return $post->post_name;
-	}
-function get_page_name(){
-	// allows you to display the name of the current page.
-		global $post;
-		echo $post->post_name;
-	}
+	function the_page_name(){
+		// allows you to use the name of the current page.
+			global $post;
+			return $post->post_name;
+		}
+	function get_page_name(){
+		// allows you to display the name of the current page.
+			global $post;
+			echo $post->post_name;
+		}
 
 // Add a nicename to body class for page.  
 // Use this for custom CSS based on pagename
-function foundation_s_body_page_name_class( $classes ) {
-    global $post;
-        $classes[] = $post->post_name;
-    return $classes;
-}
-add_filter('body_class', 'foundation_s_body_page_name_class');
+	function foundation_s_body_page_name_class( $classes ) {
+	    global $post;
+	        $classes[] = $post->post_name;
+	    return $classes;
+	}
+	add_filter('body_class', 'foundation_s_body_page_name_class');
 
 /* --------------------------------------------
 		Functions in Progress
