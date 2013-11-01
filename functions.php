@@ -187,10 +187,14 @@ add_action( 'wp_enqueue_scripts', 'foundation_s_scripts' );
 		Custom Functions
 -------------------------------------------- */
 
-function foundation_s_login_logo() 
+// uncomment this filter to remove the admin bar when logged in.
+
+// add_filter( 'show_admin_bar', '__return_false' );
+
 // this is used to create a custom login screen - feel free to change the
 // parameters as you see fit 
-{  echo 
+function foundation_s_login_logo() {  
+	echo 
     '<style  type="text/css"> h1 a {  
     		background-image:url('.get_template_directory_uri().'/images/LOGO_NAME_GOES_HERE)  !important;
 		    background-position: left top !important;
@@ -208,8 +212,9 @@ function foundation_s_login_logo()
 }  
 add_action('login_head',  'my_custom_login_logo');
 
+
+// uncomment any of the below sections to remove admin menus
 function foundation_s_remove_menu_items() {
-	// uncomment any of the below sections to remove admin menus
     if( !current_user_can( 'manage_options' ) ):
     	// remove_menu_page( 'edit.php?post_type=page' ); // pages
 	    // remove_menu_page('link-manager.php');
@@ -239,11 +244,25 @@ function get_page_name(){
 		echo $post->post_name;
 	}
 
+// Add a nicename to body class for page.  
+// Use this for custom CSS based on pagename
+function foundation_s_body_page_name_class( $classes ) {
+    global $post;
+        $classes[] = $post->post_name;
+    return $classes;
+}
+add_filter('body_class', 'foundation_s_body_page_name_class');
+
 /* --------------------------------------------
 		Functions in Progress
 -------------------------------------------- */
 
 
+
+
+/* --------------------------------------------
+		Includes
+-------------------------------------------- */
 
 /**
  * Implement the Custom Header feature.
@@ -253,19 +272,19 @@ function get_page_name(){
 /**
  * Custom template tags for this theme.
  */
-require get_template_directory() . '/inc/template-tags.php';
+// require get_template_directory() . '/inc/template-tags.php';
 
 /**
  * Custom functions that act independently of the theme templates.
  */
-require get_template_directory() . '/inc/extras.php';
+// require get_template_directory() . '/inc/extras.php';
 
 /**
  * Customizer additions.
  */
-require get_template_directory() . '/inc/customizer.php';
+// require get_template_directory() . '/inc/customizer.php';
 
 /**
  * Load Jetpack compatibility file.
  */
-require get_template_directory() . '/inc/jetpack.php';
+// require get_template_directory() . '/inc/jetpack.php';
