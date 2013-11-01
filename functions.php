@@ -172,7 +172,6 @@ function foundation_s_scripts() {
 	wp_enqueue_script('zepto', get_template_directory_uri() . '/js/zepto.js', array(), '01', true);
 	wp_enqueue_script('foundation', get_template_directory_uri() . '/js/foundation.min.js', array('jquery'), '01', true);
 		wp_enqueue_script('myapp', get_template_directory_uri(). '/js/app.js', array(), '01', true);
-	wp_enqueue_script('helpmakeitwork', get_template_directory_uri() . '/js/helpmakeitwork.js', array('jquery'), '01',true);
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
