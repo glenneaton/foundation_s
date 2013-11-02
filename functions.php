@@ -52,8 +52,6 @@ function foundation_s_setup() {
 // inlclude the classes.php file
 
 	include_once('classes/classes.php');
-
-
 	/**
 	 * Setup the WordPress core custom background feature.
 	 */
