@@ -37,7 +37,7 @@
 				'container' => 'div',
 				'container_class' => 'top-bar-section',
 				'menu_class' => 'right',
-				'walker' => new Foundation_Walker()
+				'walker' => new foundation_s_walker()
 			) ); ?>
 		</nav><!-- #site-navigation -->
 
