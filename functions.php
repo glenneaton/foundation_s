@@ -53,24 +53,6 @@ function foundation_s_setup() {
 
 	include_once('classes/classes.php');
 
-//Add class to parent pages to show they have subpages (only for automatic wp_nav_menu)
-
-add_filter('nav_menu_css_class','add_parent_css',10,2);
-function  add_parent_css($classes, $item){
-     global  $dd_depth, $dd_children;
-     $classes[] = 'depth'.$dd_depth;
-     if($dd_children)
-         $classes[] = 'parent';
-    return $classes;
-}
-
-function add_parent_class( $css_class, $page, $depth, $args )
-{
-   if ( ! empty( $args['has_children'] ) )
-       $css_class[] = 'parent';
-   return $css_class;
-}
-add_filter( 'page_css_class', 'add_parent_class', 10, 4 );
 
 	/**
 	 * Setup the WordPress core custom background feature.

@@ -4,8 +4,6 @@
     Walker classes
 -------------------------------------------- */
 
-
-
 // Using the Walker class to add the dropdown class to sub-menus per Foundation requirements
 
 class foundation_s_walker extends Walker_Nav_Menu {
@@ -31,6 +29,7 @@ class tile_walker extends Walker_Nav_Menu
     { 
 
       // variables for class names - change these.
+      // i.e. large-block-grid-2 - for two menus
       $largeGrid = '';
       $smallGrid = '';
 
@@ -46,7 +45,7 @@ class tile_walker extends Walker_Nav_Menu
         $classes = empty($item->classes) ? array () : (array) $item->classes;
         $class_names = join(' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
         !empty ( $class_names ) and $class_names = ' class="' . $largeGrid . ' ' ' ' . $smallGrid . '  columns ' . $tight . '"';
-        $output .= "<a" . $attributes . " class='tile-menu-item'>";
+        $output .= '<a' . $attributes . ' class="tile-menu-item">';
         $output .= "<div id='ms-menu-item-$item->ID' $class_names>";
         $output .= "<div class='panel table' data-height-watch>";
         
@@ -62,6 +61,24 @@ class tile_walker extends Walker_Nav_Menu
         $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
     }
 }
+//Add class to parent pages to show they have subpages (only for automatic wp_nav_menu)
+
+add_filter('nav_menu_css_class','add_parent_css',10,2);
+function  add_parent_css($classes, $item){
+     global  $dd_depth, $dd_children;
+     $classes[] = 'depth'.$dd_depth;
+     if($dd_children)
+         $classes[] = 'parent';
+    return $classes;
+}
+
+function add_parent_class( $css_class, $page, $depth, $args )
+{
+   if ( ! empty( $args['has_children'] ) )
+       $css_class[] = 'parent';
+   return $css_class;
+}
+add_filter( 'page_css_class', 'add_parent_class', 10, 4 );
 
 // allows you to call my_excerpt() with a choice of predefined lengths
 // ie my_excerpt('long');
