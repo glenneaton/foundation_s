@@ -13,7 +13,7 @@
 get_header(); ?>
 
 	<div class="large-9 columns" role="main">
-
+		<div class="panel">
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<?php get_template_part( 'content', 'page' ); ?>
@@ -26,7 +26,7 @@ get_header(); ?>
 
 			<?php endwhile; // end of the loop. ?>
 
-		
+		</div><!-- panel -->
 	</div><!-- role="main" -->
 
 <?php get_sidebar(); ?>
