@@ -68,14 +68,14 @@ function  add_parent_css($classes, $item){
      global  $dd_depth, $dd_children;
      $classes[] = 'depth'.$dd_depth;
      if($dd_children)
-         $classes[] = 'parent';
+         $classes[] = 'has-dropdown';
     return $classes;
 }
 
 function add_parent_class( $css_class, $page, $depth, $args )
 {
    if ( ! empty( $args['has_children'] ) )
-       $css_class[] = 'parent';
+       $css_class[] = 'has-dropdown';
    return $css_class;
 }
 add_filter( 'page_css_class', 'add_parent_class', 10, 4 );
