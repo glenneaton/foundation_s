@@ -13,7 +13,8 @@
 		<h1 class="page-title"><?php _e( 'Nothing Found', 'foundation_s' ); ?></h1>
 	</header><!-- .page-header -->
 
-	<div class="page-content">
+	<div class="page-content large-12 small-12 columns">
+		<div class="panel">
 		<?php if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
 
 			<p><?php printf( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'foundation_s' ), esc_url( admin_url( 'post-new.php' ) ) ); ?></p>
@@ -29,5 +30,6 @@
 			<?php get_search_form(); ?>
 
 		<?php endif; ?>
-	</div><!-- .page-content -->
+	</div><!-- panel -->
+	</div><!-- columns -->
 </section><!-- .no-results -->

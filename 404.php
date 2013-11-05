@@ -8,7 +8,7 @@
 get_header(); ?>
 
 
-	<div class="large-12 column">
+	<div class="large-12 small-12 column">
 		<div class="panel">
 
 			<section class="error-404 not-found">
