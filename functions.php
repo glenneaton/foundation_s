@@ -51,7 +51,7 @@ function foundation_s_setup() {
 
 // inlclude the classes.php file
 
-require get_template_directory() . '/classes/classes.php';
+require get_template_directory() . '/inc/classes.php';
 	/**
 	 * Setup the WordPress core custom background feature.
 	 */
