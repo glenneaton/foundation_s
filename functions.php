@@ -108,8 +108,8 @@ add_action( 'wp_enqueue_scripts', 'foundation_s_scripts' );
 
 	// add_filter( 'show_admin_bar', '__return_false' );
 
-// this is used to create a custom login screen - feel free to change the
-// parameters as you see fit 
+// this is used to create a custom login screen - 
+// feel free to change the parameters as you see fit 
 	function foundation_s_login_logo() {  
 		echo 
 	    '<style  type="text/css"> h1 a {  
@@ -172,18 +172,16 @@ add_action( 'wp_enqueue_scripts', 'foundation_s_scripts' );
 
 // Automatically add Flex-video to embeded videos (ie YouTube, Vimeo)
 function foundation_s_filter( $output, $data, $url ) {
- 
 	$return = '<div class="flex-video">'.$output.'</div>';
 	return $return;
- 
 }
 add_filter('oembed_dataparse', 'foundation_s_filter', 90, 3 );
 
 
 // wrap flex-video around [video] shortcode
 function foundation_s_video_shortcode_wrap( $html, $atts, $video){
-			$html = "<div class='flex-video'>".$html."</div>";
-			return $html; 
+	$html = "<div class='flex-video'>".$html."</div>";
+	return $html; 
 }
 add_filter('wp_video_shortcode', 'foundation_s_video_shortcode_wrap', 90, 3); 
 /* --------------------------------------------
