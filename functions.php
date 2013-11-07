@@ -170,6 +170,15 @@ add_action( 'wp_enqueue_scripts', 'foundation_s_scripts' );
 	}
 	add_filter('body_class', 'foundation_s_body_page_name_class');
 
+// Automatically add Flex-video to embeded videos (ie YouTube, Vimeo)
+function foundation_s_filter( $output, $data, $url ) {
+ 
+	$return = '<div class="flex-video">'.$output.'</div>';
+	return $return;
+ 
+}
+add_filter('oembed_dataparse', 'foundation_s_filter', 90, 3 );
+
 /* --------------------------------------------
 		Functions in Progress
 -------------------------------------------- */
