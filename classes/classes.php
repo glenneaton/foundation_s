@@ -61,7 +61,7 @@ class tile_walker extends Walker_Nav_Menu
         $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
     }
 }
-//Add class to parent pages to show they have subpages (only for automatic wp_nav_menu)
+//Add class to parent pages to show they have subpages (only for Automattic wp_nav_menu)
 
 add_filter('nav_menu_css_class','add_parent_css',10,2);
 function  add_parent_css($classes, $item){
