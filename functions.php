@@ -179,6 +179,13 @@ function foundation_s_filter( $output, $data, $url ) {
 }
 add_filter('oembed_dataparse', 'foundation_s_filter', 90, 3 );
 
+
+// wrap flex-video around [video] shortcode
+function foundation_s_video_shortcode_wrap( $html, $atts, $video){
+			$html = "<div class='flex-video'>".$html."</div>";
+			return $html; 
+}
+add_filter('wp_video_shortcode', 'foundation_s_video_shortcode_wrap', 90, 3); 
 /* --------------------------------------------
 		Functions in Progress
 -------------------------------------------- */
