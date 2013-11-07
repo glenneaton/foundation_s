@@ -22,3 +22,5 @@ $(document).ready(function(){
 
 	
 }); // end annon
+
+jQuery(document).foundation();
