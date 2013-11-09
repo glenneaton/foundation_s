@@ -16,3 +16,15 @@ display: table;
 content: "";
 display: table;
 }
+.panel.table {
+	display:table;
+	width:100%;
+}
+
+.largegrid {
+	margin-bottom:20px;
+}
+
+.smallgrid {
+	margin-bottom:10px;
+}
