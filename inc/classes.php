@@ -21,17 +21,20 @@ class foundation_s_walker extends Walker_Nav_Menu {
 
 
 // walker class to turn nav menus into grid elements
-// to display this on the front end you need to add this
 
 /*      
-*    $tiles variable sets how many tiles you want
-*    <?php $tiles = '4'; ?>
-*    <?php wp_nav_menu( array( 
-*        'theme_location' => 'grid',
-*        'menu_class' => 'large-block-grid-'. $tiles,
-*        'walker' => new tile_walker()
-*     ) ); ?>
+*    to display this on the front end you need to add this
+*    $largetiles variable sets how many tiles you want
+*    $smalltiles sets how many tiles for the small screen
 */
+    // $largetiles = '4';
+    // $smalltiles = $tiles/2;
+    // wp_nav_menu( array( 
+    //     'theme_location' => 'grid',
+    //     'menu_class' => 'large-block-grid-'. $largetiles . ' small-block-grid-'.$smalltiles,
+    //     'walker' => new tile_walker()
+    //  ) );
+
 // Add class to the tile navigation for blocks
 class tile_walker extends Walker_Nav_Menu
 {
