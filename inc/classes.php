@@ -53,9 +53,9 @@ class tile_walker extends Walker_Nav_Menu
 
       $attributes  = '';
         !empty( $item->attr_title ) and $attributes .= ' title="'  . esc_attr( $item->attr_title ) .'"';
-        !empty( $item->target ) and $attributes .= ' target="' . esc_attr( $item->target     ) .'"';
-        !empty( $item->xfn ) and $attributes .= ' rel="'    . esc_attr( $item->xfn        ) .'"';
-        !empty( $item->url ) and $attributes .= ' href="'   . esc_attr( $item->url        ) .'"';
+        !empty( $item->target ) and $attributes .= ' target="' . esc_attr( $item->target ) .'"';
+        !empty( $item->xfn ) and $attributes .= ' rel="'    . esc_attr( $item->xfn ) .'"';
+        !empty( $item->url ) and $attributes .= ' href="'   . esc_attr( $item->url ) .'"';
         $classes = empty($item->classes) ? array () : (array) $item->classes;
         $class_names = join(' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
         !empty ( $class_names ) and $class_names = ' class="'. $largeGrid . '  ' . $smallGrid . ' ' . $tight .'"';
