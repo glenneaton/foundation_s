@@ -59,7 +59,7 @@ class tile_walker extends Walker_Nav_Menu
         $classes = empty($item->classes) ? array () : (array) $item->classes;
         $class_names = join(' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
         !empty ( $class_names ) and $class_names = ' class="'. $largeGrid . '  ' . $smallGrid . ' ' . $tight .'"';
-        $output .= '<li id="ms-menu-item-$item->ID" '. $class_names .'data-height-watch>';
+        $output .= '<li id="ms-menu-item-'. $item->ID'" '. $class_names .'data-height-watch>';
         $output .= '<a' . $attributes . ' class="tile-menu-item">';
         $output .= '<div class="panel table" data-height-watch>';
         
