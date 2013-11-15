@@ -42,8 +42,7 @@ class tile_walker extends Walker_Nav_Menu
     function start_el(&$output, $item, $depth, $args)
     { 
 
-      // variables for class names - change these.
-      // i.e. large-block-grid-2 - for two menus
+      // These varibles may not need to be changeds after all
       $largeGrid = 'largegrid';
       $smallGrid = 'smallgrid';
 
@@ -52,6 +51,15 @@ class tile_walker extends Walker_Nav_Menu
 
 
       $attributes  = '';
+/*
+      // the following code is just like writing it this way
+      if(!empty($item-<attr_title)){
+        $attribues .= 'title="' . esc_attr($item->attr_title) . '"';
+      }
+      // or even this
+      if(!empty($item->attr_title))
+        $attributes .= 'title="' . esc_attr($item->attr_title) .'"';
+*/
         !empty( $item->attr_title ) and $attributes .= ' title="'  . esc_attr( $item->attr_title ) .'"';
         !empty( $item->target ) and $attributes .= ' target="' . esc_attr( $item->target ) .'"';
         !empty( $item->xfn ) and $attributes .= ' rel="'    . esc_attr( $item->xfn ) .'"';
