@@ -1,4 +1,4 @@
-$(document).ready(function(){
+jQuery(document).ready(function($){
 // This function allows to set equal heights to columns.
 // put the data-match-height on the wrapping container i.e. class="row"
 // and then put the data-height-watch role on all panels, or columns
@@ -14,13 +14,6 @@ $(document).ready(function(){
 
 	});
 
-//  uncomment below if you would like to add a class of right to the nav section
-
-	// var $nav = $('.top-bar-section > ul');
-	// $nav.addClass('right');
-
-
-	
 }); // end annon
 
 jQuery(document).foundation();
