@@ -37,7 +37,7 @@
 				'theme_location' => 'primary', 
 				'container' => 'div',
 				'container_class' => 'top-bar-section',
-				'menu_class' => '',
+				'menu_class' => 'right	',
 				'walker' => new foundation_s_walker()
 			) ); 
 			?>

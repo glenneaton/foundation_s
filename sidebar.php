@@ -6,6 +6,7 @@
  */
 ?>
 	<div id="secondary" class="widget-area large-3 small-12 columns" role="complementary">
+		<div class="panel">
 		<?php do_action( 'before_sidebar' ); ?>
 		<?php if ( ! dynamic_sidebar( 'sidebar-1' ) ) : ?>
 
@@ -14,14 +15,14 @@
 			</aside>
 
 			<aside id="archives" class="widget">
-				<h3 class="widget-title"><?php _e( 'Archives', 'foundation_s' ); ?></h3>
+				<h5 class="widget-title"><?php _e( 'Archives', 'foundation_s' ); ?></h5>
 				<ul>
 					<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
 				</ul>
 			</aside>
 
 			<aside id="meta" class="widget">
-				<h3 class="widget-title"><?php _e( 'Meta', 'foundation_s' ); ?></h3>
+				<h5 class="widget-title"><?php _e( 'Meta', 'foundation_s' ); ?></h5>
 				<ul>
 					<?php wp_register(); ?>
 					<li><?php wp_loginout(); ?></li>
@@ -30,4 +31,5 @@
 			</aside>
 
 		<?php endif; // end sidebar widget area ?>
+	</div><!-- panel -->
 	</div><!-- #secondary large-3-->
