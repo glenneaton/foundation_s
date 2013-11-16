@@ -15,14 +15,14 @@
 			</aside>
 
 			<aside id="archives" class="widget">
-				<h5 class="widget-title"><?php _e( 'Archives', 'foundation_s' ); ?></h5>
+				<h3 class="widget-title"><?php _e( 'Archives', 'foundation_s' ); ?></h3>
 				<ul>
 					<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
 				</ul>
 			</aside>
 
 			<aside id="meta" class="widget">
-				<h5 class="widget-title"><?php _e( 'Meta', 'foundation_s' ); ?></h5>
+				<h3 class="widget-title"><?php _e( 'Meta', 'foundation_s' ); ?></h3>
 				<ul>
 					<?php wp_register(); ?>
 					<li><?php wp_loginout(); ?></li>
