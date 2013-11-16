@@ -13,7 +13,7 @@ jQuery(document).ready(function($){
 	  childrenCols.css('min-height', tallestChild);
 
 	});
-	
+
 }); // end annon
 
 jQuery(document).foundation();
