@@ -32,13 +32,15 @@
 			    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
 			 </ul>
 		
-			<?php wp_nav_menu( array( 
+			<?php 
+			wp_nav_menu( array( 
 				'theme_location' => 'primary', 
 				'container' => 'div',
 				'container_class' => 'top-bar-section',
-				'menu_class' => 'right',
+				'menu_class' => '',
 				'walker' => new foundation_s_walker()
-			) ); ?>
+			) ); 
+			?>
 		</nav><!-- #site-navigation -->
 
 	</header><!-- #masthead -->

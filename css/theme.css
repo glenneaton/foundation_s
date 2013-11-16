@@ -16,7 +16,7 @@ display: table;
 content: "";
 display: table;
 }
-.panel.table {
+div.panel.table {
 	display:table;
 	width:100%;
 }

@@ -13,7 +13,21 @@
 
 get_header(); ?>
 
-	<div class="large-9 small-12 columns" role="main">
+
+<?php
+    $largetiles = '6';
+    $smalltiles = $largetiles/2;
+    wp_nav_menu( array( 
+        'theme_location' => 'grid',
+        'menu_class' => 'large-block-grid-'. $largetiles . ' small-block-grid-'. $smalltiles,
+        'walker' => new tile_walker()
+     ) );
+
+?>
+
+</div><!-- row -->
+<div class="row">
+	<div class="large-12 small-12 columns" role="main">
 		<div class="panel">
 		<?php if ( have_posts() ) : ?>
 
@@ -40,5 +54,5 @@ get_header(); ?>
 		</div><!-- panel -->
 	</div><!-- role="main" -->
 
-<?php get_sidebar(); ?>
+<?php //get_sidebar(); ?>
 <?php get_footer(); ?>

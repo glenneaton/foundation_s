@@ -7,15 +7,17 @@
 // Using the Walker class to add the dropdown class to sub-menus per Foundation requirements
 
 class foundation_s_walker extends Walker_Nav_Menu {
+    // setting the childred to true or false.. if there are child elements then we are going to 
+    // call the class below and make sure to add class of has-dropdown
     function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ){
         $GLOBALS['dd_children'] = ( isset($children_elements[$element->ID]) )? 1:0;
         $GLOBALS['dd_depth'] = (int) $depth;
         parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
     }
-
+    // add the class of dropdown to sub-level ul
      function start_lvl(&$output, $depth) {
     $indent = str_repeat("\t", $depth);
-    $output .= "<ul class=\"dropdown\">";
+    $output .= $indent ."<ul class=\"dropdown\">";
   }
 }
 
@@ -28,10 +30,10 @@ class foundation_s_walker extends Walker_Nav_Menu {
 *    $smalltiles sets how many tiles for the small screen
 */
     // $largetiles = '4';
-    // $smalltiles = $tiles/2;
+    // $smalltiles = $largetiles/2;
     // wp_nav_menu( array( 
     //     'theme_location' => 'grid',
-    //     'menu_class' => 'large-block-grid-'. $largetiles . ' small-block-grid-'.$smalltiles,
+    //     'menu_class' => 'large-block-grid-'. $largetiles . ' small-block-grid-'. $smalltiles,
     //     'walker' => new tile_walker()
     //  ) );
 
@@ -67,7 +69,7 @@ class tile_walker extends Walker_Nav_Menu
         $classes = empty($item->classes) ? array () : (array) $item->classes;
         $class_names = join(' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
         !empty ( $class_names ) and $class_names = ' class="'. $largeGrid . '  ' . $smallGrid . ' ' . $tight .'"';
-        $output .= '<li id="ms-menu-item-'. $item->ID'" '. $class_names .'data-height-watch>';
+        $output .= '<li id="ms-menu-item-'. $item->ID .'" class="' . $class_names .'" data-height-watch>';
         $output .= '<a' . $attributes . ' class="tile-menu-item">';
         $output .= '<div class="panel table" data-height-watch>';
         
@@ -86,9 +88,9 @@ class tile_walker extends Walker_Nav_Menu
 
 add_filter('nav_menu_css_class','add_parent_css',10,2);
 function  add_parent_css($classes, $item){
-     global  $dd_depth, $dd_children;
-     $classes[] = 'depth'.$dd_depth;
-     if($dd_children)
+    global  $dd_depth, $dd_children;
+    $classes[] = 'depth'.$dd_depth;
+    if($dd_children)
          $classes[] = 'has-dropdown';
     return $classes;
 }
@@ -96,8 +98,8 @@ function  add_parent_css($classes, $item){
 function add_parent_class( $css_class, $page, $depth, $args )
 {
    if ( ! empty( $args['has_children'] ) )
-       $css_class[] = 'has-dropdown';
-   return $css_class;
+      $css_class[] = 'has-dropdown';
+      return $css_class;
 }
 add_filter( 'page_css_class', 'add_parent_class', 10, 4 );
 
@@ -187,4 +189,3 @@ return apply_filters('wp_trim_excerpt', $text, $raw_excerpt);
 }
 remove_filter('get_the_excerpt', 'wp_trim_excerpt');
 add_filter('get_the_excerpt', 'custom_wp_trim_excerpt');
-

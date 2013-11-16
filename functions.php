@@ -108,7 +108,7 @@ add_action( 'wp_enqueue_scripts', 'foundation_s_scripts' );
 
 // uncomment this filter to remove the admin bar when logged in.
 
-	// add_filter( 'show_admin_bar', '__return_false' );
+	add_filter( 'show_admin_bar', '__return_false' );
 
 // this is used to create a custom login screen - 
 // feel free to change the parameters as you see fit 
