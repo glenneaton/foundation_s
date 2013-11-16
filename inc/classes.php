@@ -28,7 +28,7 @@ class foundation_s_walker extends Walker_Nav_Menu {
 *    $smalltiles sets how many tiles for the small screen
 */
     // $largetiles = '4';
-    // $smalltiles = $tiles/2;
+    // $smalltiles = $largetiles/2;
     // wp_nav_menu( array( 
     //     'theme_location' => 'grid',
     //     'menu_class' => 'large-block-grid-'. $largetiles . ' small-block-grid-'.$smalltiles,
